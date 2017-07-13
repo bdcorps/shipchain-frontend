@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "errorhandler": "~1.2.4",
     "body-parser": "^1.17.2",
+    "errorhandler": "^1.2.4",
     "express": "^4.15.3",
     "websocket": "^1.0.24",
     "ws": "^3.0.0"

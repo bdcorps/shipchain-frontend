@@ -19,7 +19,7 @@
             // First the socket requesta
             function socketExample() {
                 console.log('Creating socket');
-                let socket = new WebSocket('ws://localhost:8080/');
+                let socket = new WebSocket('ws://shipchain-frontend.mybluemix.net:8080/');
                 socket.onopen = function() {
 
                     console.log('Socket open.');

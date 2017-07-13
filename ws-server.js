@@ -26,10 +26,6 @@ wss.on('connection', function connection(ws) {
     });
 });
 
-
-if (!process.env.VCAP_SERVICES) {
-    app.use(errorhandler());
-}
 var port = 8080;
 app.listen(port);
 console.log('listening at:', port);
