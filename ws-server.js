@@ -26,6 +26,8 @@ wss.on('connection', function connection(ws) {
     });
 });
 
-var port = 8080;
-app.listen(port);
-console.log('listening at:', port);
+
+server.listen(8080, function() {
+
+    console.log(`http/ws server listening on 8080`);
+});
