@@ -32,11 +32,11 @@ document.body.onload = function() {
         console.log("about to register");
 
         var json = {
-            "enrollId": "user_type1_1",
-            "enrollSecret": "17a64f95ec"
+             "enrollId": "user_type1_0",
+  "enrollSecret": "b6258d7adf"
         }
         $.ajax({
-            url: 'https://fc082e2e78bf4e93890d38acf3ee9678-vp0.us.blockchain.ibm.com:5002/registrar',
+            url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/registrar',
             type: 'post',
             contentType: "application/json",
             success: function(data) {
@@ -59,14 +59,15 @@ document.body.onload = function() {
                     "path": "http://gopkg.in/bdcorps/learn-chaincode.v2/start"
                 },
                 "ctorMsg": {
-                    "function": "init"
+                    "function": "init",
+                    "args":["hi there"]
                 },
                 "secureContext": "user_type1_0"
             },
             "id": 1
         }
         $.ajax({
-            url: 'https://fc082e2e78bf4e93890d38acf3ee9678-vp0.us.blockchain.ibm.com:5002/chaincode',
+            url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chaincode',
             type: 'post',
             contentType: "application/json",
             success: function(data) {
@@ -85,7 +86,7 @@ document.body.onload = function() {
             "params": {
                 "type": 1,
                 "chaincodeID": {
-                    "name": "9e71e45a0c2c7fb43577ec5a32736f508f3ec53e8b9bf3ab2bbab2f788216182214b34cc908331058fe9258a5a13d068c4419d34dd4d69007e6ef9244a67cc1e"
+                    "name": "bab9e777d3bee798e0895710aa1f74e0784ce680a517a3a7bb98cd5bc24f5add71935a3efca99e5bb26c027a9224b9eb14feaef27cdab04bb0afdaa45d9cfc91"
                 },
                 "ctorMsg": {
                     "function": "init_shipment",
@@ -97,7 +98,7 @@ document.body.onload = function() {
         }
 
         $.ajax({
-            url: 'https://fc082e2e78bf4e93890d38acf3ee9678-vp0.us.blockchain.ibm.com:5002/chaincode',
+            url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chaincode',
             type: 'post',
             contentType: "application/json",
             success: function(data) {
@@ -116,17 +117,18 @@ document.body.onload = function() {
             "params": {
                 "type": 1,
                 "chaincodeID": {
-                    "name": "9e71e45a0c2c7fb43577ec5a32736f508f3ec53e8b9bf3ab2bbab2f788216182214b34cc908331058fe9258a5a13d068c4419d34dd4d69007e6ef9244a67cc1e"
+                    "name": "bab9e777d3bee798e0895710aa1f74e0784ce680a517a3a7bb98cd5bc24f5add71935a3efca99e5bb26c027a9224b9eb14feaef27cdab04bb0afdaa45d9cfc91"
                 },
                 "ctorMsg": {
-                    "function": "read"
+                    "function": "read",
+                    "args":["ship1"]
                 },
                 "secureContext": "user_type1_0"
             },
             "id": 5
         }
         $.ajax({
-            url: 'https://fc082e2e78bf4e93890d38acf3ee9678-vp0.us.blockchain.ibm.com:5002/chaincode',
+            url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chaincode',
             type: 'post',
             contentType: "application/json",
             success: function(data) {
@@ -146,7 +148,7 @@ document.body.onload = function() {
             "params": {
                 "type": 1,
                 "chaincodeID": {
-                    "name": "9e71e45a0c2c7fb43577ec5a32736f508f3ec53e8b9bf3ab2bbab2f788216182214b34cc908331058fe9258a5a13d068c4419d34dd4d69007e6ef9244a67cc1e"
+                    "name": "bab9e777d3bee798e0895710aa1f74e0784ce680a517a3a7bb98cd5bc24f5add71935a3efca99e5bb26c027a9224b9eb14feaef27cdab04bb0afdaa45d9cfc91"
                 },
                 "ctorMsg": {
                     "function": "set_temp",
@@ -158,7 +160,7 @@ document.body.onload = function() {
         }
 
         $.ajax({
-            url: 'https://fc082e2e78bf4e93890d38acf3ee9678-vp0.us.blockchain.ibm.com:5002/chaincode',
+            url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chaincode',
             type: 'post',
             contentType: "application/json",
             success: function(data) {
