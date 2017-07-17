@@ -24,9 +24,17 @@ document.body.onload = function() {
 
     getReading();
 
-    function showMessage(msg) {
-        alert(msg);
-    };
+   
+
+    var ccname = $("#ccName").val();
+    $("#ccName").on("change paste keyup", function() {
+ //ccname = $("#ccName").val();
+ });
+
+ ccname="bab9e777d3bee798e0895710aa1f74e0784ce680a517a3a7bb98cd5bc24f5add71935a3efca99e5bb26c027a9224b9eb14feaef27cdab04bb0afdaa45d9cfc91"
+
+
+
 
     $("#registrarButton").click(function() {
         console.log("about to register");
@@ -79,6 +87,11 @@ document.body.onload = function() {
     });
     $("#initShipmentButton").click(function() {
         console.log("about to invoke shipment");
+var shipmentName = $("#shipmentName").val();
+var longitude = $("#longitude").val();
+var latitude = $("#latitude").val();
+var temp = $("#temp").val();
+var shipmentId = $("#shipmentId").val();
 
         var json = {
             "jsonrpc": "2.0",
@@ -86,11 +99,11 @@ document.body.onload = function() {
             "params": {
                 "type": 1,
                 "chaincodeID": {
-                    "name": "bab9e777d3bee798e0895710aa1f74e0784ce680a517a3a7bb98cd5bc24f5add71935a3efca99e5bb26c027a9224b9eb14feaef27cdab04bb0afdaa45d9cfc91"
+                    "name": ccname
                 },
                 "ctorMsg": {
                     "function": "init_shipment",
-                    "args": ["ship1", "10", "10", "25", "id"]
+                    "args": [shipmentName, longitude,latitude,temp, shipmentId]
                 },
                 "secureContext": "user_type1_0"
             },
@@ -110,6 +123,8 @@ document.body.onload = function() {
     });
     $("#readShipmentButton").click(function() {
         console.log("about to read shipment");
+        
+var queryShipmentId = $("#queryShipmentId").val();
 
         var json = {
             "jsonrpc": "2.0",
@@ -117,11 +132,11 @@ document.body.onload = function() {
             "params": {
                 "type": 1,
                 "chaincodeID": {
-                    "name": "bab9e777d3bee798e0895710aa1f74e0784ce680a517a3a7bb98cd5bc24f5add71935a3efca99e5bb26c027a9224b9eb14feaef27cdab04bb0afdaa45d9cfc91"
+                    "name": ccname
                 },
                 "ctorMsg": {
                     "function": "read",
-                    "args":["ship1"]
+                    "args":[queryShipmentId]
                 },
                 "secureContext": "user_type1_0"
             },
@@ -141,18 +156,20 @@ document.body.onload = function() {
 
     $("#setReadingButton").click(function() {
         console.log("about to set reading");
+var targetShipmentId = $("#targetShipmentId").val();
+var targetTemp = $("#targetTemp").val();
 
         var json = {
             "jsonrpc": "2.0",
-            "method": "query",
+            "method": "invoke",
             "params": {
                 "type": 1,
                 "chaincodeID": {
-                    "name": "bab9e777d3bee798e0895710aa1f74e0784ce680a517a3a7bb98cd5bc24f5add71935a3efca99e5bb26c027a9224b9eb14feaef27cdab04bb0afdaa45d9cfc91"
+                    "name": ccname
                 },
                 "ctorMsg": {
                     "function": "set_temp",
-                    "args": ["ship1", "9"]
+                    "args": [targetShipmentId, targetTemp]
                 },
                 "secureContext": "user_type1_0"
             },
