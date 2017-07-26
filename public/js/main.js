@@ -31,7 +31,7 @@ window.onload = function() {
             socket.onmessage = function(message) {
                 console.log('Socket server message', message);
                 let data = JSON.parse(message.data);
-                document.getElementById('response').innerHTML = JSON.stringify(data, null, 2);
+                document.getElementById('temp').innerHTML = JSON.stringify(data, null, 2);
                 setReading(JSON.stringify(data, null, 2));
                 getChainLength();
 
@@ -85,7 +85,7 @@ window.onload = function() {
                     type: 'post',
                     contentType: "application/json",
                     success: function(data) {
-                        $('#response').append("\n" + JSON.stringify(data));
+                        $('#response-main').append("\n" + JSON.stringify(data));
                         console.log("the blockchain said: " + JSON.stringify(data))
                     },
                     data: JSON.stringify(json)
@@ -118,7 +118,7 @@ window.onload = function() {
                 type: 'post',
                 contentType: "application/json",
                 success: function(data) {
-                    $('#response').append("\n" + JSON.stringify(data));
+                    $('#response-main').append("\n" + JSON.stringify(data));
                     console.log("the blockchain said: " + JSON.stringify(data))
                 },
                 data: JSON.stringify(json)
@@ -149,7 +149,7 @@ window.onload = function() {
                 type: 'post',
                 contentType: "application/json",
                 success: function(data) {
-                    $('#response').append("\n" + JSON.stringify(data));
+                    $('#response-main').append("\n" + JSON.stringify(data));
                     console.log("the blockchain said: " + JSON.stringify(data))
                 },
                 data: JSON.stringify(json)
@@ -185,7 +185,7 @@ window.onload = function() {
                 type: 'post',
                 contentType: "application/json",
                 success: function(data) {
-                    $('#response').append("\n" + JSON.stringify(data));
+                    $('#response-main').append("\n" + JSON.stringify(data));
                     console.log("the blockchain said: " + JSON.stringify(data))
                 },
                 data: JSON.stringify(json)
@@ -222,7 +222,7 @@ window.onload = function() {
                     type: 'post',
                     contentType: "application/json",
                     success: function(data) {
-                        $('#response').append("\n" + JSON.stringify(data));
+                        $('#response-main').append("\n" + JSON.stringify(data));
                         console.log("the blockchain said: " + JSON.stringify(data))
                     },
                     data: JSON.stringify(json)
@@ -261,7 +261,7 @@ window.onload = function() {
                     type: 'post',
                     contentType: "application/json",
                     success: function(data) {
-                        $('#response').append("\n" + JSON.stringify(data));
+                        $('#response-main').append("\n" + JSON.stringify(data));
                         console.log("the blockchain said: " + JSON.stringify(data))
                     },
                     data: JSON.stringify(json)
