@@ -18,11 +18,11 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.get('/', function(req, res) {
-    res.render('index.ejs');
+    res.render('main.ejs');
 });
-
-app.post('/getstarted', function(req, res) {})
-
+app.get('/app', function(req, res) {
+    res.render('app.ejs');
+});
 var appEnv = cfenv.getAppEnv();
 
 // start server on the specified port and binding host
