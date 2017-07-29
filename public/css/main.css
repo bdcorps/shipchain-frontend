@@ -1,3 +1,5 @@
+
+
 .jumbotron {
     background-color: #fdd600;
     padding-top: 128px;
@@ -30,6 +32,7 @@
 
 p, h1, h2, h3, h4 {
     font-family: 'Roboto', sans-serif;
+    color:#323232;
 }
 
 .display-3 {
@@ -81,6 +84,25 @@ button, a, input {
     transition-timing-function: ease, ease, ease;
     vertical-align: baseline;
     white-space: normal;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-image-outset: 0px;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: #323232;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-right-color: #323232;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-top-color: #323232;
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-bottom-color: #323232;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
 }
 
 button {
@@ -318,15 +340,27 @@ h4 {
     }
 }
 
+
+
+
 .block {
     width: 35px;
     height: 35px;
-    background-color: red;
+    background-color: #323232;
     display: inline-block;
 }
 
 .blockText {
     color: white;
 }
+
+.mainContainer{margin-left: 30px;margin-right: 30px;}
+
+.mainDisplayDiv{
+    height:100vh;
+}
+
+#tempDiv{text-align: right;font-size: 70px;}
+#moneyDiv{text-align: left;font-size: 70px;}
 
 #blockChain {}
