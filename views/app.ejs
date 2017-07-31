@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
@@ -15,32 +17,73 @@
 
 <body>
 
-<div class="mainContainer">
-<h1>Now tracking shipment</h1>
-<input type="trackingShipmentInput" name="trackingShipmentInput">
+    <div class="mainContainer">
+        <h1>Now tracking shipment</h1>
+        <input id="trackingShipmentInput" name="trackingShipmentInput">
+        <div class="container-fluid">
+            <div class="row mainDisplayDiv">
+                <div class="col-sm-6 leftDiv">
+                    <h1>Shipment Temperature</h1>
+                    <h1 id="temp"></h1>
+                </div>
+                <div class="col-sm-6 rightDiv">
+                    <h1>Compensation</h1>
+                    <h1 id="money"></h1></div>
+            </div>
 
-<div class="container-fluid">
-  <div class="row mainDisplayDiv">
-  <h1>Shipment T</h1>
-    <div class="col-sm-6" id="tempDiv">25</div>
-    <div class="col-sm-6" id="moneyDiv">$ 320</div>
-  </div>
-</div>
 
-    <div id="blockChain">
-        <div class="block">
-            <p class="blockText">BH</p>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="blockChain">
+                        <div class="block">
+                            <p class="blockText">BH</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="block">
-            <p class="blockText">BH</p>
-        </div>
-        <div class="block">
-            <p class="blockText">BH</p>
-        </div>
+
+
     </div>
-</div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+
+
+
+    <div id="dashboard-wrapper">
+        <div id="dashboard" class="showDashboard">
+
+            <div class="container-fluid centerDiv">
+                <i class="fa fa-chevron-down fa-3x" id="dashToggle" aria-hidden="true"></i>
+                <div class="row mainDisplayDiv ">
+                    <div class="col-sm-12">
+                        <div class=" col-sm-6 leftDiv centerDiv">
+                            <div class="dropdown ">
+                                <button class="btn dropdown-toggle light-button " type="button " data-toggle="dropdown " id="dropdownButton ">Execute Command
+                         <span class="caret "></span></button>
+                                <ul class="dropdown-menu ">
+                                    <li><a href="# ">Create Shipment</a></li>
+                                    <li><a href="# ">Read Shipment</a></li>
+                                    <li><a href="# ">Set Property</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 rightDiv centerDiv">
+                            <div>
+                                <h1 class=" light-text ">Response</h1>
+                                <pre id="response-main" class="scrollable "></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js " integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=" anonymous "></script>
+        <script type="text/javascript " src="js/main.js "></script>
 </body>
 
 </html>

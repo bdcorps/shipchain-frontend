@@ -5,9 +5,15 @@ window.onload = function() {
 
         var shipmentName = "what1";
         var blockHeight = 0;
+        var temp = 0;
+        var money = 0;
+
+        $('#temp').html(temp + " &#186;C");
+
+        $('#money').html("$ " + money);
 
         getChainLength();
-
+        $('#trackingShipmentInput').val(shipmentName);
         console.log("starting chain length: " + blockHeight);
         for (var i = blockHeight - 5; i < blockHeight; i++) {
 
@@ -31,8 +37,16 @@ window.onload = function() {
             socket.onmessage = function(message) {
                 console.log('Socket server message', message);
                 let data = JSON.parse(message.data);
-                document.getElementById('temp').innerHTML = JSON.stringify(data, null, 2);
-                setReading(JSON.stringify(data, null, 2));
+                temp = JSON.stringify(data, null, 2);
+
+                if (temp > 25) {
+                    console.log("compensate");
+                    money += 10;
+                    $('#money').html(money + "$ " + money);
+                }
+                $('#temp').html(temp + " &#186;C");
+                console.log("tempd " + temp);
+                setReading(JSON.stringify(data, null, 2), money);
                 getChainLength();
 
                 $('#blockChain').append('<div class="block"><p class="blockText">' + blockHeight + '</p></div>');
@@ -42,11 +56,11 @@ window.onload = function() {
 
         function getChainLength() {
             $.ajax({
-                url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chain',
+                url: 'https://a98b6dfcd66548868e738278b07eec78-vp0.us.blockchain.ibm.com:5002/chain',
                 type: 'get',
                 contentType: "application/json",
                 success: function(data) {
-                    $('#response').append("\n" + JSON.stringify(data.height));
+                    $('#response-main').append("\n" + JSON.stringify(data.height));
                     console.log("no of blocks: " + JSON.stringify(data.height));
                     blockHeight = parseInt(JSON.stringify(data.height));
                 },
@@ -54,7 +68,7 @@ window.onload = function() {
             });
         }
 
-        function setReading(targetTemp) {
+        function setReading(targetTemp, targetMoney) {
             console.log("about to set reading");
             //var targetShipmentName = $("#targetShipmentName").val();
             var targetShipmentName = shipmentName;
@@ -73,7 +87,7 @@ window.onload = function() {
                         },
                         "ctorMsg": {
                             "function": "set_temp",
-                            "args": [targetShipmentName, targetTemp]
+                            "args": [targetShipmentName, targetTemp, targetMoney]
                         },
                         "secureContext": "user_type1_0"
                     },
@@ -81,7 +95,7 @@ window.onload = function() {
                 }
 
                 $.ajax({
-                    url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chaincode',
+                    url: 'https://a98b6dfcd66548868e738278b07eec78-vp0.us.blockchain.ibm.com:5002/chaincode',
                     type: 'post',
                     contentType: "application/json",
                     success: function(data) {
@@ -102,7 +116,7 @@ window.onload = function() {
             //ccname = $("#ccName").val();
         });
 
-        ccname = "bab9e777d3bee798e0895710aa1f74e0784ce680a517a3a7bb98cd5bc24f5add71935a3efca99e5bb26c027a9224b9eb14feaef27cdab04bb0afdaa45d9cfc91"
+        ccname = "a8fbdd3f36c23f072740368aad32d233d0e0812de68e6eb5d528207297575b8bb0c3a81aa3b26bcaf7437195a69f5411808b21e0e164081b15901254099890b3"
 
 
 
@@ -111,10 +125,10 @@ window.onload = function() {
 
             var json = {
                 "enrollId": "user_type1_0",
-                "enrollSecret": "b6258d7adf"
+                "enrollSecret": "5b1c69c518"
             }
             $.ajax({
-                url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/registrar',
+                url: 'https://a98b6dfcd66548868e738278b07eec78-vp0.us.blockchain.ibm.com:5002/registrar',
                 type: 'post',
                 contentType: "application/json",
                 success: function(data) {
@@ -145,7 +159,7 @@ window.onload = function() {
                 "id": 1
             }
             $.ajax({
-                url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chaincode',
+                url: 'https://a98b6dfcd66548868e738278b07eec78-vp0.us.blockchain.ibm.com:5002/chaincode',
                 type: 'post',
                 contentType: "application/json",
                 success: function(data) {
@@ -181,7 +195,7 @@ window.onload = function() {
             }
 
             $.ajax({
-                url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chaincode',
+                url: 'https://a98b6dfcd66548868e738278b07eec78-vp0.us.blockchain.ibm.com:5002/chaincode',
                 type: 'post',
                 contentType: "application/json",
                 success: function(data) {
@@ -203,14 +217,14 @@ window.onload = function() {
 
                 var json = {
                     "jsonrpc": "2.0",
-                    "method": "invoke",
+                    "method": "query",
                     "params": {
                         "type": 1,
                         "chaincodeID": {
                             "name": ccname
                         },
                         "ctorMsg": {
-                            "function": "read",
+                            "function": "readShipment",
                             "args": [queryShipmentName]
                         },
                         "secureContext": "user_type1_0"
@@ -218,7 +232,7 @@ window.onload = function() {
                     "id": 5
                 }
                 $.ajax({
-                    url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chaincode',
+                    url: 'https://a98b6dfcd66548868e738278b07eec78-vp0.us.blockchain.ibm.com:5002/chaincode',
                     type: 'post',
                     contentType: "application/json",
                     success: function(data) {
@@ -257,7 +271,7 @@ window.onload = function() {
                 }
 
                 $.ajax({
-                    url: 'https://197af3d609254a0b91850fea5d6d88af-vp0.us.blockchain.ibm.com:5004/chaincode',
+                    url: 'https://a98b6dfcd66548868e738278b07eec78-vp0.us.blockchain.ibm.com:5002/chaincode',
                     type: 'post',
                     contentType: "application/json",
                     success: function(data) {
@@ -268,7 +282,18 @@ window.onload = function() {
                 });
             }
         });
+
+
+        $("#dashToggle").click(function() {
+            var dash = $('#dashboard');
+            if (dash.hasClass("showDashboard")) {
+                dash.removeClass("showDashboard");
+                dash.addClass("hideDashboard");
+            } else {
+                dash.removeClass("hideDashboard");
+                dash.addClass("showDashboard");
+            }
+        });
+
     });
-
-
 };
