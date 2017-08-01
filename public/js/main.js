@@ -1,4 +1,4 @@
-window.onload = function() {
+// window.onload = function() {
     $(document).ready(function() {
 
         'use strict';
@@ -169,7 +169,7 @@ window.onload = function() {
                 data: JSON.stringify(json)
             });
         });
-        $("#initShipmentButton").click(function() {
+        $("#initShipmentButton").on('click', function() {
             console.log("about to invoke shipment");
             shipmentName = $("#shipmentName").val();
             var longitude = $("#longitude").val();
@@ -286,14 +286,19 @@ window.onload = function() {
 
         $("#dashToggle").click(function() {
             var dash = $('#dashboard');
-            if (dash.hasClass("showDashboard")) {
-                dash.removeClass("showDashboard");
-                dash.addClass("hideDashboard");
-            } else {
-                dash.removeClass("hideDashboard");
-                dash.addClass("showDashboard");
-            }
+            // if (dash.hasClass("showDashboard")) {
+            //     dash.removeClass("showDashboard");
+            //     dash.addClass("hideDashboard");
+            // } else {
+            //     dash.removeClass("hideDashboard");
+            //     dash.addClass("showDashboard");
+            // }
+            dash.toggleClass('showDashboard').toggleClass('hideDashboard');
         });
 
-    });
-};
+        $(".dropdown .dropdown-content").on('click', 'a', function() {
+            // console.log($(this).text());
+            $(".dropbtn").empty().html($(this).text());
+        })
+    });//document.ready
+// };
