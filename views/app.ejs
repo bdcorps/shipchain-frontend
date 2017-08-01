@@ -59,18 +59,25 @@
                 <div class="row mainDisplayDiv ">
                     <!-- <div class="col-sm-12"> -->
                         <div class=" col-sm-6 text-center">
+                            <div class="row">
+                                <div class="dropdown">
+                                    <button class="dropbtn">Execute Command</button>
+                                    <div class="dropdown-content">
 
-
-                            <div class="dropdown">
-                                <button class="dropbtn">Execute Command</button>
-                                <div class="dropdown-content">
-
-                                    <a href="#" id="initShipmentButton">Create Shipment</a>
-                                    <a href="#" id="readShipmentButton">Read Shipment</a>
-                                    <a href="#" id="setReadingButton">Set Property</a>
+                                        <a href="#" id="initShipmentButton">Create Shipment</a>
+                                        <a href="#" id="readShipmentButton">Read Shipment</a>
+                                        <a href="#" id="setReadingButton">Set Property</a>
+                                    </div>
                                 </div>
                             </div>
-
+                            <div class="row hidden" id="shipment-info">
+                                <input type="text" class="hidden create" id="owner-name" placeholder="Onwer Name" />
+                                <input type="text" class="hidden create set read"id="shipment-name" placeholder="Shipment Name" />
+                                <input type="text" class="hidden create" id="shipment-lat" placeholder="Shipment Lat" />
+                                <input type="text" class="hidden create" id="shipment-lng" placeholder="Shipment Long" />
+                                <input type="text" class="hidden create set" id="shipment-temp" placeholder="Shipment Temp" />
+                                <button id='createShipment' class="light-button"></button>
+                            </div>
 
                         </div>
                         <div class="col-sm-6 rightDiv centerDiv">
