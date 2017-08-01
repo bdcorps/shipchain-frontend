@@ -297,8 +297,22 @@
         });
 
         $(".dropdown .dropdown-content").on('click', 'a', function() {
-            // console.log($(this).text());
             $(".dropbtn").empty().html($(this).text());
+            if ($("#shipment-info").removeClass('hidden'))
+
+            if ($(this).attr('id')=== 'initShipmentButton') {
+                $("#shipment-info").find('input').addClass('hidden');
+                $(".create").toggleClass('hidden');
+                $("#createShipment").html('Create!');
+            } else if ($(this).attr('id') === 'readShipmentButton') {
+                $("#shipment-info").find('input').addClass('hidden');
+                $(".read").toggleClass('hidden');
+                $("#createShipment").html('Read!');
+            } else if ($(this).attr('id') === 'setReadingButton') {
+                $("#shipment-info").find('input').addClass('hidden');
+                $(".set").toggleClass('hidden');
+                $("#createShipment").html('Set!');
+            }
         })
     });//document.ready
 // };

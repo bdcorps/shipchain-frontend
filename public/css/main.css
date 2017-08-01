@@ -381,6 +381,13 @@ input[type="text"] {
     height: 300px;
 }
 
+/* * * * * * * * * * * * * */
+/* dashboard info */
+#shipment-info {
+    margin-top: 20px;
+}
+/* * * * * * * * * * * * * */
+
 @media screen and (max-width: 768px) {
     body {
         background-color: pink;
