@@ -401,6 +401,7 @@ input[type="text"] {
     border-right-color: #fdd600;
     border-top-color: #fdd600;
     border-bottom-color: #fdd600;
+    width: 176.06px;
 }
 
 a {
@@ -413,6 +414,7 @@ a {
 .dropdown {
     position: relative;
     display: inline-block;
+    line-height: 0;
 }
 
 
@@ -423,8 +425,10 @@ a {
     position: absolute;
     background-color: #fdd600;
     min-width: 160px;
+    width: 176.06px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    line-height: 1.2;
 }
 
 
