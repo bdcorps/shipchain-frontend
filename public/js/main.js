@@ -3,7 +3,7 @@ window.onload = function() {
 
         'use strict';
 
-        var shipmentName = "what1";
+        var shipmentName = "what2";
         var blockHeight = 0;
         var temp = 0;
         var money = 0;
@@ -39,10 +39,10 @@ window.onload = function() {
                 let data = JSON.parse(message.data);
                 temp = JSON.stringify(data, null, 2);
 
-                if (temp > 25) {
+                if (temp > 20) {
                     console.log("compensate");
                     money += 10;
-                    $('#money').html(money + "$ " + money);
+                    $('#money').html("$ " + money);
                 }
                 $('#temp').html(temp + " &#186;C");
                 console.log("tempd " + temp);
@@ -87,7 +87,7 @@ window.onload = function() {
                         },
                         "ctorMsg": {
                             "function": "set_temp",
-                            "args": [targetShipmentName, targetTemp, targetMoney]
+                            "args": [targetShipmentName, JSON.stringify(targetTemp), JSON.stringify(targetMoney)]
                         },
                         "secureContext": "user_type1_0"
                     },
@@ -116,7 +116,7 @@ window.onload = function() {
             //ccname = $("#ccName").val();
         });
 
-        ccname = "a8fbdd3f36c23f072740368aad32d233d0e0812de68e6eb5d528207297575b8bb0c3a81aa3b26bcaf7437195a69f5411808b21e0e164081b15901254099890b3"
+        ccname = "2a4b5e8ffcd8fe08409dd57dc1856f83b4d3c823b2bb7339a3d9dd06d6c3d91d4050cccc8ec0361d1226793d3dbf9a4fc0e2b35b738bf7ff99d00c3a687534e1"
 
 
 
