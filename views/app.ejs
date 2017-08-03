@@ -54,14 +54,15 @@
 
             <div class="container-fluid">
                 <div class="centerDiv" style="width: 100%;  text-align: center;">
-                    <i class="fa fa-chevron-down fa-3x" id="dashToggle" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-down fa-3x dashToggle" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-up fa-3x dashToggle hidden" aria-hidden="true"></i>
                 </div>
                 <div class="row mainDisplayDiv ">
                     <!-- <div class="col-sm-12"> -->
                         <div class=" col-sm-6 text-center">
                             <div class="row">
                                 <div class="dropdown">
-                                    <button class="dropbtn">Execute Command</button>
+                                    <button class="dropbtn" id="initialButton">Execute Command</button>
                                     <div class="dropdown-content">
 
                                         <a href="#" id="initShipmentButton">Create Shipment</a>

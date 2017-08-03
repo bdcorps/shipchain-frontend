@@ -283,8 +283,7 @@
             }
         });
 
-
-        $("#dashToggle").click(function() {
+        $(".dashToggle").click(function() {
             var dash = $('#dashboard');
             // if (dash.hasClass("showDashboard")) {
             //     dash.removeClass("showDashboard");
@@ -294,6 +293,8 @@
             //     dash.addClass("showDashboard");
             // }
             dash.toggleClass('showDashboard').toggleClass('hideDashboard');
+            $("#initialButton").toggleClass('hidden');
+            $(this).parent().find('i').toggleClass('hidden');
         });
 
         $(".dropdown .dropdown-content").on('click', 'a', function() {

@@ -368,7 +368,7 @@ input[type="text"] {
     margin-right: 30px;
 }
 
-#dashToggle {
+.dashToggle {
     padding-top: 10px;
     color: #fdd600;
 }
