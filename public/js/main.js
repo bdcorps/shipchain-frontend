@@ -14,6 +14,11 @@ $(document).ready(function() {
 
     getChainLength();
     $('#trackingShipmentInput').val(shipmentName);
+
+    $("#trackingShipmentInput").on('input', function(e) {
+        shipmentName = $('#trackingShipmentInput').val();
+    });
+
     console.log("starting chain length: " + blockHeight);
     for (var i = blockHeight - 5; i < blockHeight; i++) {
 
