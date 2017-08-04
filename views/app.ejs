@@ -51,19 +51,20 @@
 
             <div class="container-fluid">
                 <div class="centerDiv" style="width: 100%;  text-align: center;">
-                    <i class="fa fa-chevron-down fa-3x" id="dashToggle" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-down fa-3x dashToggle" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-up fa-3x hidden dashToggle" aria-hidden="true"></i>
                 </div>
-                <div class="row mainDisplayDiv ">
-                    <!-- <div class="col-sm-12"> -->
+                <div class="row mainDisplayDiv">
+                    <!-- <div class="col-sm-12 "> -->
                     <div class=" col-sm-6 text-center">
-                        <div class="row">
+                        <div class="row ">
                             <div class="dropdown">
-                                <button class="dropbtn">Execute Command</button>
+                                <button id="executeBtn" class="dropbtn">Execute Command</button>
                                 <div class="dropdown-content">
 
-                                    <a href="#" id="initShipmentButton">Create Shipment</a>
-                                    <a href="#" id="readShipmentButton">Read Shipment</a>
-                                    <a href="#" id="setReadingButton">Set Property</a>
+                                    <a id="initShipmentButton">Create Shipment</a>
+                                    <a id="readShipmentButton">Read Shipment</a>
+                                    <a id="setReadingButton">Set Property</a>
                                 </div>
                             </div>
                         </div>
@@ -79,10 +80,10 @@
                         </div>
 
                     </div>
-                    <div class="col-sm-6 rightDiv centerDiv">
+                    <div class="col-sm-6">
                         <div>
-                            <h1 class=" light-text ">Response</h1>
-                            <pre id="response-main" class="scrollable "></pre>
+                            <h1 class=" light-text">Response</h1>
+                            <pre id="response-main" class="scrollable"></pre>
                         </div>
                     </div>
                     <!-- </div> -->

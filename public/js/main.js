@@ -284,7 +284,7 @@ $(document).ready(function() {
     });
 
 
-    $("#dashToggle").click(function() {
+    $(".dashToggle").click(function() {
         var dash = $('#dashboard');
         // if (dash.hasClass("showDashboard")) {
         //     dash.removeClass("showDashboard");
@@ -294,6 +294,7 @@ $(document).ready(function() {
         //     dash.addClass("showDashboard");
         // }
         dash.toggleClass('showDashboard').toggleClass('hideDashboard');
+        $(".dashToggle").toggleClass('hidden');
     });
 
     $(".dropdown .dropdown-content").on('click', 'a', function() {

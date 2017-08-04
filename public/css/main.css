@@ -302,8 +302,9 @@ input[type="text"] {
 
 #response-main {
     border-radius: 0;
-    height: 100px;
-    max-width: 500px;
+    height: 250px;
+    max-width: 600px;
+    margin-top: 20px;
 }
 
 #dashButton-wrapper {
@@ -368,7 +369,7 @@ input[type="text"] {
     margin-right: 30px;
 }
 
-#dashToggle {
+.dashToggle {
     padding-top: 10px;
     color: #fdd600;
 }
@@ -378,24 +379,18 @@ input[type="text"] {
 }
 
 .showDashboard {
-    height: 300px;
+    height: 400px;
 }
 
-/* * * * * * * * * * * * * */
+
 /* dashboard info */
+
 #shipment-info {
     margin-top: 20px;
 }
-/* * * * * * * * * * * * * */
 
-@media screen and (max-width: 768px) {
-    body {
-        background-color: pink;
-    }
-    .showDashboard {
-        height: 400px;
-    }
-    #response-main {}
+#executeBtn {
+    margin-top: 20px;
 }
 
 .dropbtn {
@@ -470,4 +465,12 @@ a {
 .dropdown:hover .dropbtn {
     background-color: #fdd600;
     color: #323232;
+}
+
+@media screen and (max-width: 768px) {
+    body {}
+    .showDashboard {
+        height: 700px;
+    }
+    #response-main {}
 }
