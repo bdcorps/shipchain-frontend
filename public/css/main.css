@@ -280,6 +280,17 @@ input[type="text"] {
 
 .mainDisplayDiv {
     height: 250px;
+    padding-top: 20px;
+}
+
+.yellow-to-white {
+    animation-name: yellowtowhite;
+    animation-duration: 1s;
+}
+
+.yellow-to-gray {
+    animation-name: yellowtogray;
+    animation-duration: 2s;
 }
 
 .leftDiv {
@@ -302,7 +313,7 @@ input[type="text"] {
 
 #response-main {
     border-radius: 0;
-    height: 250px;
+    height: 200px;
     max-width: 600px;
     margin-top: 20px;
 }
@@ -335,6 +346,8 @@ input[type="text"] {
 }
 
 #blockChain {
+    padding-top: 60px;
+    padding-bottom: 20px;
     display: inline-block;
 }
 
@@ -375,11 +388,33 @@ input[type="text"] {
 }
 
 .hideDashboard {
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
     height: 60px;
 }
 
 .showDashboard {
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
     height: 400px;
+}
+
+@keyframes yellowtowhite {
+    from {
+        background-color: #fdd600;
+    }
+    to {
+        background-color: #ffffff;
+    }
+}
+
+@keyframes yellowtogray {
+    from {
+        background-color: #fdd600;
+    }
+    to {
+        background-color: #323232;
+    }
 }
 
 

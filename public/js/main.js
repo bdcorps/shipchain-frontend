@@ -3,10 +3,14 @@ $(document).ready(function() {
 
     'use strict';
 
-    var shipmentName = "what2";
+    var shipmentName = "ship1";
     var blockHeight = 0;
     var temp = 0;
     var money = 0;
+
+    var ccname = "0fd8458bd6eae490c7878a8ff4a66ea12f1c985a6a8c38be72ef028847c349789ddb68f3c282536220b78654fb6190d0c8ac2a447aae2a5e85333179c1c4bb87"
+
+
 
     $('#temp').html(temp + " &#186;C");
 
@@ -19,7 +23,6 @@ $(document).ready(function() {
         shipmentName = $('#trackingShipmentInput').val();
     });
 
-    console.log("starting chain length: " + blockHeight);
     for (var i = blockHeight - 5; i < blockHeight; i++) {
 
         $('#blockChain').append('<div class="block"><p class="blockText">' + i + '</p></div>');
@@ -44,7 +47,7 @@ $(document).ready(function() {
             let data = JSON.parse(message.data);
             temp = JSON.stringify(data, null, 2);
 
-            if (temp > 20) {
+            if (temp > 25) {
                 console.log("compensate");
                 money += 10;
                 $('#money').html("$ " + money);
@@ -54,7 +57,7 @@ $(document).ready(function() {
             setReading(JSON.stringify(data, null, 2), money);
             getChainLength();
 
-            $('#blockChain').append('<div class="block"><p class="blockText">' + blockHeight + '</p></div>');
+            $('#blockChain').append('<div class="block"><p class="blockText yellow-to-gray">' + blockHeight + '</p></div>');
 
         };
     }
@@ -114,14 +117,6 @@ $(document).ready(function() {
 
     getReading();
 
-
-
-    var ccname = $("#ccName").val();
-    $("#ccName").on("change paste keyup", function() {
-        //ccname = $("#ccName").val();
-    });
-
-    ccname = "0fd8458bd6eae490c7878a8ff4a66ea12f1c985a6a8c38be72ef028847c349789ddb68f3c282536220b78654fb6190d0c8ac2a447aae2a5e85333179c1c4bb87"
 
 
 
@@ -211,6 +206,10 @@ $(document).ready(function() {
         });
     });
     $("#readShipmentGoButton").click(function() {
+        readShipmentGo();
+    });
+
+    function readShipmentGo() {
         console.log("about to read shipment");
 
         var queryShipmentName = $("#shipment-name").val();
@@ -241,14 +240,14 @@ $(document).ready(function() {
                 type: 'post',
                 contentType: "application/json",
                 success: function(data) {
+                    console.log("the blockchain said: " + JSON.stringify(data));
                     $('#response-main').append("\n" + data.result.message);
-                    console.log("the blockchain said: " + JSON.stringify(data))
+                    money = parseInt(data.result.message.ownermoney);
                 },
                 data: JSON.stringify(json)
             });
         }
-    });
-
+    }
     $("#setReadingGoButton").click(function() {
         console.log("about to set reading");
         var targetShipmentName = $("#shipment-name").val();
